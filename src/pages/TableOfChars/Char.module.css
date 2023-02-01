@@ -1,0 +1,37 @@
+.tableRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(192, 218, 99);
+  padding: 10px
+}
+
+.name {
+  width: 35%;
+}
+
+.alive {
+  width: 15%;
+}
+
+.gender {
+  width: 10%;
+}
+
+.culture {
+  width: 10%
+}
+
+.allegiances {
+  width: 15%
+}
+
+.numOfBooks {
+  width: 5%;
+}

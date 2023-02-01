@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import Dropdown from "../../components/Dropdown";
+import Char from "./Char";
+import rs from "./Char.module.css"
 import s from "./TableOfChars.module.css"
 
 const TableOfChars = () => {
+  const [selected, setSelected] = useState("Choose gender")
   const [chars, setChars] = useState(
     [
       {
@@ -94,30 +97,36 @@ const TableOfChars = () => {
     if (chars.length < 10) {
       fetchChars()
     }
-  }, [])
+  }, [chars.length])
+
 
   return (
-    <>
-      {chars.map(char => {
-        return (
-          <div className={s.tableItem}>
-            <div className={s.cell}>{char.character}</div>
-            <div className={s.cell}>{char.alive}</div>
-            <div className={s.cell}>{char.gender}</div>
-            <div className={s.cell}>{char.culture}</div>
-            <div className={s.cell}>
-              {typeof(char.allegiances) !== "string"
-               ?char.allegiances.map(el => {
-                return <NavLink to={`houses/${el}`}>{el}</NavLink>
-                })
-               : char.allegiances
-              }
-            </div>
-            <div className={s.cell}>{char.numberOfBooks}</div>
-          </div>
-        )
-      })}
-    </>
+    <div className={s.container}>
+      <div>
+        <div></div>
+        <h1>Ice and Fire character table</h1>
+        <Dropdown selected={selected} setSelected={setSelected}/>
+      </div>
+      <div className={s.tableWrapper}>
+        <table className={s.wholeTable}>
+          <thead className={rs.tableRow} >
+            <th scope="colgroup" className={`${rs.cell} ${rs.name} ${s.thead}`}>Character</th>
+            <th scope="colgroup" className={`${rs.cell} ${rs.alive} ${s.thead}`}>Alive</th>
+            <th scope="colgroup" className={`${rs.cell} ${rs.gender} ${s.thead}`}>Gender</th>
+            <th scope="colgroup" className={`${rs.cell} ${rs.culture} ${s.thead}`}>Culture</th>
+            <th scope="colgroup" className={`${rs.cell} ${rs.allegiances} ${s.thead}`}>Allegiance</th>
+            <th scope="colgroup" className={`${rs.cell} ${rs.numOfBooks} ${s.thead}`}># of Books</th>
+          </thead>
+          <tbody>
+            {chars.map((char, idx) => {
+              return (
+                <Char key={idx} char={char} />
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }
 
