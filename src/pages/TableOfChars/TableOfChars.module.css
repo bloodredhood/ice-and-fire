@@ -1,0 +1,12 @@
+.tableItem {
+  width: 1140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  background-color: rgb(192, 218, 99);
+  border: 1px black solid;
+  padding: 10px 50px
+}
