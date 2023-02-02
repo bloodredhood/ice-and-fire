@@ -1,14 +1,37 @@
 .container {
-  width: 1140px;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.tableWrapper {
-  margin-top: 30px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.showPage {
+  display: flex;
+  align-items: center;
+}
+
+.dropdownContainer {
+  display: flex;
+  align-items: center;
+}
+
+.dropdownText {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.selectOptions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .wholeTable {
@@ -19,4 +42,5 @@
 
 .thead {
   background-color: rgb(103, 179, 79);
+  font-weight: bold;
 }

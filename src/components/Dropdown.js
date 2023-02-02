@@ -1,24 +1,32 @@
 import React, { useState } from "react";
-import s from "./Dropdown.css"
+import "./PagesDropdown.css"
+import "./GenderDropdown.css"
 
-const Dropdown = ({ selected, setSelected }) => {
+const Dropdown = ({ selected, setSelected, role }) => {
   const [isActive, setIsActive] = useState(false)
-  const options = ["Any", "Male", "Female"]
+  let options, styles
+  if (role === "pages") {
+    options = [10, 25, 50]
+    styles = ["dropdown", "dropdown-btn", "dropdown-content", "dropdown-item"]
+  } else if (role === "gender") {
+    options = ["Any", "Male", "Female"]
+    styles = ["dropdowng", "dropdown-btng", "dropdown-contentg", "dropdown-itemg"]
+  }
   return (
-    <div className="dropdown">
-      <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
+    <div className={styles[0]}>
+      <div className={styles[1]} onClick={(e) => setIsActive(!isActive)}>
         {selected}
-        <span className="fas fa-caret-down"></span>
       </div>
       {isActive && (
-        <div className="dropdown-content">
-          {options.map((option) => (
+        <div className={styles[2]}>
+          {options.map((option, idx) => (
             <div
+              key={idx}
               onClick={(e) => {
                 setSelected(option)
                 setIsActive(false)
               }}
-              className="dropdown-item"
+              className={styles[3]}
             >{option}</div>
           ))}
         </div>
