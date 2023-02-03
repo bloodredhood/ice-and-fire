@@ -1,5 +1,37 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 .input {
-  height: 31px;
-  width: 165px;
+  height: 20px;
+  width: 185px;
   font-size: 16px;
+  padding: 4px;
+
+}
+
+.dropdown-input{
+  position: absolute;
+  top: 27px;
+  left: -5px;
+  padding: 5px;
+
+}
+
+.dropdown-row {
+  width: 185px;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #fafafa;
+  transition: all 0.2s;
+  padding: 5px;
+}
+
+.dropdown-row:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
 }

@@ -1,0 +1,23 @@
+.houseWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backBtn {
+  width: 15%;
+  margin-top: 30px;
+  background-color: rgb(220, 247, 124);
+  border: 3px solid rgb(103, 179, 79);
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.backBtn a {
+  text-decoration: none;
+  color: black;
+}

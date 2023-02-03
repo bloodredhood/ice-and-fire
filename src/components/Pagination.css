@@ -3,11 +3,21 @@
   justify-content: center;
 }
 
-.pagination-btn {
+.paginationBtn {
   font-weight: bold;
-  background-color: rgb(192, 218, 99);
+  background-color: rgb(220, 247, 124);
   border: 3px solid rgb(103, 179, 79);
   margin: 10px;
   padding: 5px;
   cursor: pointer;
+}
+
+.paginationBtnInactive {
+  font-weight: bold;
+  background-color: rgb(209, 214, 188);
+  border: 3px solid rgb(148, 192, 134);
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: rgb(85, 85, 85);
 }

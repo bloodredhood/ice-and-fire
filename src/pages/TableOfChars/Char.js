@@ -1,15 +1,22 @@
 import React from "react";
-import s from "./Char.module.css"
+import "./Char.css"
 import { NavLink } from "react-router-dom";
 
-const Char = ({char}) => {
+const Char = ({char, colorize}) => {
+  let style
+  if (colorize === 1) {
+    style = {backgroundColor: "rgb(220, 247, 124)"}
+  } else if(colorize === 2) {
+    style = {backgroundColor: "rgb(192, 218, 99)"}
+  }
+
   return (
-    <div className={s.tableRow}>
-      <div className={`${s.cell} ${s.name}`}>{char.character}</div>
-      <div className={`${s.cell} ${s.alive}`}>{char.alive}</div>
-      <div className={`${s.cell} ${s.gender}`}>{char.gender}</div>
-      <div className={`${s.cell} ${s.culture}`}>{char.culture}</div>
-      <div className={`${s.cell} ${s.allegiances}`}>
+    <div className="tableRow" style={style}>
+      <div className="cell name">{char.character}</div>
+      <div className="cell alive">{char.alive}</div>
+      <div className="cell gender">{char.gender}</div>
+      <div className="cell culture">{char.culture}</div>
+      <div className="cell allegiances">
         {typeof (char.allegiances) !== "string"
           ? char.allegiances.map((el, idx) => {
             if (idx === char.allegiances.length - 1) {
@@ -22,7 +29,7 @@ const Char = ({char}) => {
           : char.allegiances
         }
       </div>
-      <div className={`${s.cell} ${s.numOfBooks}`}>{char.numberOfBooks}</div>
+      <div className="cell numOfBooks">{char.numberOfBooks}</div>
     </div>
   )
 }

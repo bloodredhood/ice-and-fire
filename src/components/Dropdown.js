@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PagesDropdown.css"
 import "./GenderDropdown.css"
 
-const Dropdown = ({ selected, setSelected, role }) => {
+const Dropdown = ({ selected, setSelected, setCurrentPage, setIsLoading, role }) => {
   const [isActive, setIsActive] = useState(false)
   let options, styles
   if (role === "pages") {
@@ -25,6 +25,8 @@ const Dropdown = ({ selected, setSelected, role }) => {
               onClick={(e) => {
                 setSelected(option)
                 setIsActive(false)
+                setCurrentPage(1)
+                setIsLoading(true)
               }}
               className={styles[3]}
             >{option}</div>
